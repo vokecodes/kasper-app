@@ -64,7 +64,8 @@ function App() {
   const handleShowAlert = useCallback((data) => {
     setShowAlert(true);
     setApiResponse({
-      message: data.message || data.error,
+      message:
+        data.message || data.error ? JSON.stringify(data.error) : "API error!",
       success: data.success,
     });
   }, []);
